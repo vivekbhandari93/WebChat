@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    
+        {% block title %}{% endblock  %}
+        
+    </title>
+
+    {% comment %} bootstrap_3.4.1 css links {% endcomment %}
+    <link rel='stylesheet' href="{% static 'webchat/css/bootstrap.css' %}">
+    <link rel='stylesheet' href="{% static 'webchat/css/bootstrap-theme.css' %}">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <a href="{% url 'index' %}" class="navbar-brand">WebChat</a>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li><a href="#"> Chats </a></li>
+                    <li><a href="#"> Groups </a></li>
+                    <li><a href="#"> Profile </a></li>
+                    <li><a href="{% url 'accounts:logout' %}"> Logout </a></li>
+                {% else %}
+                    <li><a href="{% url 'accounts:login' %}"> Login </a></li>
+                    <li><a href="{% url 'accounts:signup' %}"> Signup </a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        {% block content %} {% endblock  %}
+    
+    </div>
+
+</body>
+
+    {% comment %} bootstrap_3.4.1 js link {% endcomment %}
+    <script src="{% static 'webchat/js/bootstrap.js' %}">
+
+</html>
