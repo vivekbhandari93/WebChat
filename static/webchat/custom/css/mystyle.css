@@ -1,0 +1,14 @@
+body{
+    background-color: gray;
+}
+
+
+.jumbotron{
+    background-color: darkgrey;
+}
+
+
+.img-thumbnail{
+    width: 20%;
+    height: 20%;
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block title %} Update Profile {% endblock  %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <form method="POST"  enctype="multipart/form-data" >
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="Update" class="btn btn-success btn-md">
+        <a href="{% url 'accounts:detail' slug=user.member.slug %}" class="btn btn-simple btn-md btn-default">Cancel</a>
+    </form>
+</div>
+{% endblock  %}

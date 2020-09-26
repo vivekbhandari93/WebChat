@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete Profile {% endblock  %}
+
+{% block content %} 
+    <div class="page-header"><h1> Confirm Delete: </h1></div>
+    <div class="jumbotron"> 
+        <p class="text-danger"> Account @{{member.username}} will be deleted, are you sure ? </p>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Confirm Delete" class="btn btn-danger btn-md">
+            <a href="{% url 'accounts:detail' slug=user.member.slug %}" class="btn btn-simple btn-md btn-default">Cancel</a>
+        </form>
+
+    </div>
+
+{% endblock  %}

@@ -15,6 +15,9 @@
     <link rel='stylesheet' href="{% static 'webchat/css/bootstrap.css' %}">
     <link rel='stylesheet' href="{% static 'webchat/css/bootstrap-theme.css' %}">
 
+    {% comment %} Custom css links {% endcomment %}
+    <link rel="stylesheet" href="{% static 'webchat/custom/css/mystyle.css' %}">
+
 </head>
 <body>
 
@@ -25,7 +28,7 @@
                 {% if user.is_authenticated %}
                     <li><a href="#"> Chats </a></li>
                     <li><a href="#"> Groups </a></li>
-                    <li><a href="#"> Profile </a></li>
+                    <li><a href="{% url 'accounts:detail' slug=user.member.slug %}"> Profile </a></li>
                     <li><a href="{% url 'accounts:logout' %}"> Logout </a></li>
                 {% else %}
                     <li><a href="{% url 'accounts:login' %}"> Login </a></li>

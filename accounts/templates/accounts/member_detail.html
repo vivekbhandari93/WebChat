@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Profile {% endblock  %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <h1> @{{member.username}} </h1>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <a href="{% url 'accounts:delete' slug=user.member.slug %}" class="btn btn-warning btn-md"> Delete </a>
+        <a href="{% url 'accounts:update' slug=user.member.slug %}" class="btn btn-warning btn-md"> Update </a>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <p>
+                {% if member.profile_pic %} 
+                    <img src="{{member.profile_pic.url}}" alt="link broken" class="img-thumbnail"/> 
+                {% else %}
+                    No Image
+                {% endif %}
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <p><strong>Email id :</strong><br> {{member.email}} </p>
+            <p><strong>Website :</strong><br> {{member.website}} </p>
+            <p><strong>About me :</strong><br> {{member.about}} </p>
+        
+        </div>
+        
+    </div>
+</div>
+
+{% endblock  %}
